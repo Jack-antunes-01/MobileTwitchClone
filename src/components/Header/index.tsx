@@ -1,19 +1,23 @@
-import React from 'react';
-import { MaterialIcons, MaterialCommunityIcons, Feather } from '@expo/vector-icons';
-
-import { 
-  Container,
-  Avatar,
-  OnlineStatus,
-  RightSide,
-  Button,
-} from './styles';
-import colors from '../../styles/colors';
+import React from "react";
+import {
+  MaterialIcons,
+  MaterialCommunityIcons,
+  Feather,
+} from "@expo/vector-icons";
+import ProfileImage from "../../images/pp.jpeg";
+import { Container, Avatar, OnlineStatus, RightSide, Button } from "./styles";
+import colors from "../../styles/colors";
+import { Image } from "react-native";
 
 const Header: React.FC = () => {
   return (
     <Container>
       <Avatar>
+        <Image
+          source={ProfileImage}
+          resizeMode="contain"
+          style={{ width: 32, height: 32, borderRadius: 16 }}
+        />
         <OnlineStatus />
       </Avatar>
 
@@ -35,11 +39,7 @@ const Header: React.FC = () => {
         </Button>
 
         <Button>
-          <Feather
-            name="search"
-            size={26}
-            color={colors.black}
-          />
+          <Feather name="search" size={26} color={colors.black} />
         </Button>
       </RightSide>
     </Container>

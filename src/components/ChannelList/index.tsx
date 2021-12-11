@@ -1,7 +1,7 @@
-import React from 'react';
-import { Text } from 'react-native';
+import React from "react";
+import { FlatList, Text } from "react-native";
 
-import { 
+import {
   List,
   ChannelContainer,
   LeftSide,
@@ -11,17 +11,36 @@ import {
   Info,
   RightSide,
   WhiteCircle,
- } from './styles';
+} from "./styles";
+
+import Jackson from "../../images/pp.jpeg";
+import Edilberto from "../../images/pp1.jpeg";
+import Juliano from "../../images/pp2.jpeg";
+
+const CHANNEL_DATA = [
+  {
+    imageSource: Edilberto,
+    title: "Edilberto",
+  },
+  {
+    imageSource: Jackson,
+    title: "Jackson",
+  },
+  {
+    imageSource: Juliano,
+    title: "Juliano",
+  },
+];
 
 const ChannelList: React.FC = () => {
-  const ChannelItem = () => (
+  const ChannelItem = ({ item }: any) => (
     <ChannelContainer>
       <LeftSide>
-        <Avatar />
+        <Avatar source={item.imageSource} />
 
         <Column>
-          <Username>rocket_oficial</Username>
-          <Info>36 news videos</Info>
+          <Username>{item.title}</Username>
+          <Info>{(Math.random() * 10).toFixed(0)} news videos</Info>
         </Column>
       </LeftSide>
 
@@ -33,15 +52,9 @@ const ChannelList: React.FC = () => {
 
   return (
     <List>
-      <ChannelItem />
-      <ChannelItem />
-      <ChannelItem />
-      <ChannelItem />
-      <ChannelItem />
-      <ChannelItem />
-      <ChannelItem />
-      <ChannelItem />
-      <ChannelItem />
+      {CHANNEL_DATA.map((item) => (
+        <ChannelItem item={item} key={item.title} />
+      ))}
     </List>
   );
 };

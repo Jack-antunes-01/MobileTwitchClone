@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import data from './data';
+import data from "./data";
 
-import { 
+import {
   List,
   CategoryContainer,
   CategoryImage,
@@ -10,7 +10,7 @@ import {
   CategoryStatus,
   RedCircle,
   Info,
-} from './styles';
+} from "./styles";
 
 interface ItemProps {
   item: typeof data[0];
@@ -23,7 +23,7 @@ const CategoryList: React.FC = () => {
       <CategoryName numberOfLines={1}>{item.name}</CategoryName>
       <CategoryStatus>
         <RedCircle />
-        <Info>57.5k</Info>
+        <Info>{(Math.random() * 100).toFixed(1)}k</Info>
       </CategoryStatus>
     </CategoryContainer>
   );
